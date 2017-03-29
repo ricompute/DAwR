@@ -116,10 +116,8 @@ Download and install **RStudio** for your operating system here:
 ]
 
 ---
-background-image: url("./im/RStudio-layout.png")
+background-image: url("./im/RStudio-layout-small.png")
 class: center, middle
-
-
 
 ---
 
