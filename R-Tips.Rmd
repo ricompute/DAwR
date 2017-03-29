@@ -229,6 +229,40 @@ to search the built-in help.
 
 ![Help](./im/help.png)
 
+---
+
+# **`R`** and **RStudio** Basics
+
+## Everything that happens in **`R`** is a function call
+
+## Everything that exists in **`R`** is an object
+
+---
+
+# **`R`** and **RStudio** Basics
+
+**`R`** objects can be stored with **`<-`**
+
+--
+
+**`<-`** is the *assignment operator*
+
+```{r}
+a <- 6
+b <- 1:5
+```
+
+--
+
+```{r}
+a
+b
+```
+
+--
+
+Use **`Alt+-`** (`Option+-`) to insert `<-` (surrounded by spaces) in RStudio.
+
 
 
 ---
