@@ -119,7 +119,7 @@ Download and install **RStudio** for your operating system here:
 ]
 
 ---
-class: center, middle, inverse
+class: center, middle
 
 ![RStudio Layout](./im/RStudio-layout.png)
 
@@ -145,21 +145,18 @@ Press `Enter`, and **`R`** will execute the command and return any output.
 
 --
 
-
 ```r
-&gt; 8 - 2
+&gt; 1 + 1
 ```
 
-```
-[1] 6
-```
+`[1] 2`
 
 --
 
-`8 - 2` is the command entered.
+`1 + 1` is the command entered.
 
-`[1] 6` is the output. `[1]` means we're looking at the first element of the 
-output. `6` is the result of the calculation.
+`[1] 2` is the output. `[1]` means we're looking at the first element of the 
+output. `2` is the result of the calculation.
 
 --
 
@@ -175,35 +172,35 @@ After the command is finished running, you are returned to a new prompt: **`&gt;
 
 
 ```r
-&gt; date()
+date()
 ```
 
 ```
-[1] "Tue Mar 28 23:50:44 2017"
-```
-
-```r
-&gt; round(3.141593)
-```
-
-```
-[1] 3
+## [1] "Wed Mar 29 09:18:03 2017"
 ```
 
 ```r
-&gt; round(3.141593, digits = 2)
+round(3.141593)
 ```
 
 ```
-[1] 3.14
+## [1] 3
 ```
 
 ```r
-&gt; round(pi, 2)
+round(3.141593, digits = 2)
 ```
 
 ```
-[1] 3.14
+## [1] 3.14
+```
+
+```r
+round(pi, 2)
+```
+
+```
+## [1] 3.14
 ```
 
 ---
@@ -212,25 +209,22 @@ After the command is finished running, you are returned to a new prompt: **`&gt;
 
 To find out about a function in **`R`**, use the built-in help:
 
-
 ```r
-&gt; ?name
+?name
 ```
 
 OR
 
-
 ```r
-&gt; help(name)
+help(name)
 ```
 
 --
 
 Use
 
-
 ```r
-&gt; ??keyword
+??keyword
 ```
 
 to search the built-in help.
@@ -239,9 +233,8 @@ to search the built-in help.
 
 # **`R`** and **RStudio** Basics: Help!
 
-
 ```r
-&gt; ?round
+?round
 ```
 
 ![Help](./im/help.png)
@@ -376,9 +369,9 @@ Limitations:
 
 
 ```r
-&gt; # a boring regression
-&gt; fit = lm(dist ~ 1 + speed, data = cars)
-&gt; coef(summary(fit))
+# a boring regression
+fit = lm(dist ~ 1 + speed, data = cars)
+coef(summary(fit))
 ```
 
 ```
@@ -388,12 +381,12 @@ Limitations:
 ```
 
 ```r
-&gt; dojutsu = c('地爆天星', '天照', '加具土命', '神威', '須佐能乎', '無限月読')
-&gt; grep('天', dojutsu, value = TRUE)
+dojutsu = c('地爆天星', '天照', '加具土命', '神威', '須佐能乎', '無限月読')
+grep('天', dojutsu, value = TRUE)
 ```
 
 ```
-# [1] "地爆天星" "天照"
+# character(0)
 ```
 
 ---
@@ -402,9 +395,9 @@ Limitations:
 
 
 ```r
-&gt; par(mar = c(4, 4, 1, .1))
-&gt; plot(cars, pch = 19, col = 'darkgray', las = 1)
-&gt; abline(fit, lwd = 2)
+par(mar = c(4, 4, 1, .1))
+plot(cars, pch = 19, col = 'darkgray', las = 1)
+abline(fit, lwd = 2)
 ```
 
 ![](R-Tips_files/figure-html/cars-1.svg)&lt;!-- --&gt;
@@ -505,13 +498,13 @@ An example using `{{}}`:
 Output:
 
 ```r
-&gt; if (TRUE) {
-+ {{ message("Very important!") }}
-+ }
+if (TRUE) {
+* message("Very important!") 
+}
 ```
 
 ```
-Very important!
+## Very important!
 ```
 
 It is valid R code so you can run it.

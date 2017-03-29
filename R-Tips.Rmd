@@ -14,8 +14,8 @@ output:
 ---
 
 ```{r setup, echo = FALSE}
-options(prompt = "> ")
-knitr::opts_chunk$set(prompt = TRUE, comment = NA)
+# options(prompt = "> ")
+# knitr::opts_chunk$set(prompt = TRUE, comment = NA)
 ```
 
 
@@ -116,7 +116,7 @@ Download and install **RStudio** for your operating system here:
 ]
 
 ---
-class: center, middle, inverse
+class: center, middle
 
 ![RStudio Layout](./im/RStudio-layout.png)
 
@@ -142,9 +142,11 @@ Press `Enter`, and **`R`** will execute the command and return any output.
 
 --
 
-```{r}
-1 + 1
+```r
+> 1 + 1
 ```
+
+`[1] 2`
 
 --
 
