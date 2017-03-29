@@ -169,6 +169,26 @@ After the command is finished running, you are returned to a new prompt: **`>`**
 
 ```{r}
 date()
+```
+
+--
+
+<br />
+
+**`#`** is the **comment** symbol. **`R`** will ignore anything on a line after
+`#`.
+
+I will leave off the prompt **`>`** for **`R`** commands and comment **`##`** 
+the output to make code easier to copy and paste into your own console from this 
+presentation.
+
+---
+
+# **`R`** and **RStudio** Basics
+
+Things inside function calls are called **arguments**.
+
+```{r}
 round(3.141593)
 round(3.141593, digits = 2)
 round(pi, 2)
