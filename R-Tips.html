@@ -175,7 +175,7 @@ date()
 ```
 
 ```
-## [1] "Wed Mar 29 16:08:33 2017"
+## [1] "Wed Mar 29 16:49:48 2017"
 ```
 
 --
@@ -254,7 +254,9 @@ to search the built-in help.
 ?round
 ```
 
+.center[
 ![Help](./im/help.png)
+]
 
 ---
 
@@ -302,6 +304,97 @@ b
 --
 
 Use **`Alt+-`** (`Option+-`) to insert `&lt;-` (surrounded by spaces) in RStudio.
+
+---
+
+# **`R`** and **RStudio** Basics
+
+Try to use helpful and consistent names for the objects you create.
+
+--
+
+&lt;br /&gt;
+
+&gt; Variable and function names should be lowercase. Use an underscore (`_`) to 
+&gt; separate words within a name... Generally, variable names should be nouns and 
+&gt; function names should be verbs. Strive for names that are concise and 
+&gt; meaningful (this is not easy!).
+
+&lt;br /&gt;
+
+— Hadley Wickham, [*R Packages*](http://r-pkgs.had.co.nz/r.html#style) ([r-pkgs.had.co.nz](http://r-pkgs.had.co.nz))
+
+---
+
+# **`R`** and **RStudio** Basics
+
+**Vectors** are ordered groups of objects of the same data type. You can make 
+vectors using **`c()`**.
+
+
+```r
+numeric_vector &lt;- c(0.5, 0.6)
+logical_vector &lt;- c(TRUE, FALSE)
+character_vector &lt;- c("a", "b", "cde", "f")
+integer_vector &lt;- 2:8
+integer_vector_2 &lt;- c(3L, 5L, 4L, 56L)
+```
+
+--
+
+Examine the structure of an object using **`str()`**:
+
+
+```r
+str(integer_vector)
+```
+
+```
+##  int [1:7] 2 3 4 5 6 7 8
+```
+
+
+---
+
+# **`R`** and **RStudio** Basics
+
+Keep track of objects you have stored in the environment pane:
+
+&lt;br /&gt;
+
+.center[
+![Environment](./im/environment.png)
+]
+
+---
+
+# Tip \#2: Use Awesome **`R`** Packages!
+
+There are over 10,000 user-contributed packages on CRAN (and many more elsewhere).
+
+--
+
+Base **`R`** is great, but some of the syntax has a pretty steep learning curve. 
+Many packages are designed to make **`R`** easier to use.
+
+- Especially those created by Hadley Wickham and the people at RStudio.
+
+--
+
+**`R`** has a built-in way to install packages. This will install a fairly large 
+set of awesome packages designed to work well together to make your life easier:
+
+```r
+install.packages(c("tidyverse", "rmarkdown"))
+```
+
+--
+
+If you want to start with a smaller subset of those packages:
+
+```r
+install.packages(c("dplyr", "readr", "ggplot2"))
+```
 
 
 
