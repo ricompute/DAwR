@@ -142,15 +142,15 @@ Press `Enter`, and **`R`** will execute the command and return any output.
 --
 
 ```{r}
-8 - 2
+1 + 1
 ```
 
 --
 
-`8 - 2` is the command entered.
+`1 + 1` is the command entered.
 
-`[1] 6` is the output. `[1]` means we're looking at the first element of the 
-output. `6` is the result of the calculation.
+`[1] 2` is the output. `[1]` means we're looking at the first element of the 
+output. `2` is the result of the calculation.
 
 --
 
@@ -177,13 +177,13 @@ round(pi, 2)
 
 To find out about a function in **`R`**, use the built-in help:
 
-```{r eval = FALSE}
+```r
 ?name
 ```
 
 OR
 
-```{r eval = FALSE}
+```r
 help(name)
 ```
 
@@ -191,7 +191,7 @@ help(name)
 
 Use
 
-```{r eval = FALSE}
+```r
 ??keyword
 ```
 
@@ -201,7 +201,7 @@ to search the built-in help.
 
 # **`R`** and **RStudio** Basics: Help!
 
-```{r eval = FALSE}
+```r
 ?round
 ```
 
