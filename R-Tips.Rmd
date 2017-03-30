@@ -361,7 +361,7 @@ you can save **`R`** code.
 
 **`R`** scripts:
 
-- make it easy to edit your code
+- make it easy to edit and re-run your code
 
 --
 
@@ -380,8 +380,13 @@ You can easily pick up where you left off by using an **`R`** script!
 In RStudio, `File > New File > R Script` will open a new file in the Source 
 Editor pane:
 
+.center[
+![Source Editor](./im/source.png)
+]
 
+--
 
+**`Ctrl+Enter`** (`Cmd+Enter`) to run the current line/selection
 
 
 ---
