@@ -324,6 +324,11 @@ add_two_numbers <- function(x, y) {
 
 ```{r}
 add_two_numbers(4, 6)
+```
+
+--
+
+```{r}
 addition_result <- add_two_numbers(12, 436)
 print(addition_result)
 ```
@@ -346,6 +351,36 @@ Keep track of objects you have stored in the environment pane:
 # Tip \#2: Don't Type at the Console
 
 ## Use **`R`** Scripts!
+
+--
+
+**`R`** scripts are plain text files (usually with the extension `.R`) in which 
+you can save **`R`** code.
+
+--
+
+**`R`** scripts:
+
+- make it easy to edit your code
+
+--
+
+- keep a reproducible record of your work
+
+--
+
+Start with a clean workspace at the beginning of each session.
+
+You can easily pick up where you left off by using an **`R`** script!
+
+---
+
+# **`R`** and **RStudio** Basics: Scripts
+
+In RStudio, `File > New File > R Script` will open a new file in the Source 
+Editor pane:
+
+
 
 
 
