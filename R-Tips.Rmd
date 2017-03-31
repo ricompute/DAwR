@@ -287,7 +287,7 @@ Try to use helpful and consistent names for the objects you create.
 
 <br />
 
-— Hadley Wickham, [*R Packages*](http://r-pkgs.had.co.nz/r.html#style) ([r-pkgs.had.co.nz](http://r-pkgs.had.co.nz))
+&mdash; Hadley Wickham, [*R Packages*](http://r-pkgs.had.co.nz/r.html#style) ([r-pkgs.had.co.nz](http://r-pkgs.had.co.nz))
 
 --
 
@@ -456,9 +456,7 @@ thg<-function(a1,a2){fnbdy}
 
 ---
 
-# **`R`** and **RStudio** Basics: Projects
-
-## Use RStudio Projects
+# Tip \#2.5: Use RStudio Projects
 
 --
 
@@ -505,7 +503,7 @@ Coursera and its free book:
 - [*Hands on Programming with R*](http://amzn.com/1449359019) by Garrett Grolemund
 
 - [RStudio Essentials](https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/) 
-video (watch at least the first 15—20 minutes)
+video (watch at least the first 15&ndash;20 minutes)
 
 - [RStudio IDE Cheat Sheet](https://www.rstudio.com/resources/cheatsheets/)  
 In RStudio: `Help > Cheatsheets > RStudio IDE Cheat Sheet`
@@ -575,7 +573,8 @@ class: center, middle, inverse
 # Tip \#4: Use **`ggplot2`** for Graphics
 
 **`ggplot2`** is a graphics package by Hadley Wickham which implements the 
-**grammar of graphics**.
+**grammar of graphics** to give you an accessible mental model for thinking about 
+graphics and allow you to easily and rapidly create new graphics.
 
 --
 
@@ -660,6 +659,60 @@ class: center, middle, inverse
 
 # Tip \#5: Use Tidy Data
 
+> Write code for humans, write data for computers.
+> &mdash; [Vince Buffalo](https://twitter.com/vsbuffalo/statuses/358699162679787521)
+
+--
+
+**Tidy data** is an organizing principle which you can use to structure your data 
+to make it easier to work with in **`R`**.
+
+--
+
+[Tidy data](http://r4ds.had.co.nz/tidy-data.html) means:
+
+1. Each variable must have its own column.
+2. Each observation must have its own row.
+3. Each value must have its own cell.
+
+![Tidy Data](./im/tidy-1.png)
+
+---
+
+# Tidy Data
+
+Practically, this means **data frames** should be the fundamental way your data 
+exist in **`R`**.
+
+--
+
+```{r}
+untidy_data <- dplyr::data_frame(Treatment = c("Control", "T3"),
+                                 Day1 = c(4.5, 8.7),
+                                 Day3 = c(5.4, 9.9))
+untidy_data
+```
+
+---
+
+# Tidy Data
+
+Practically, this means **data frames** should be the fundamental way your data 
+exist in **`R`**.
+
+```{r}
+tidy_data <- dplyr::data_frame(Treatment = c("Control", "Control",
+                                             "T3", "T3"),
+                               Time = c("Day 1", "Day 3", 
+                                        "Day 1", "Day 3"),
+                               Value = c(4.5, 5.4, 8.7, 9.9))
+tidy_data
+```
+
+---
+
+# Tip \#6: Use **`dplyr`**
+
 
 
 
@@ -685,7 +738,7 @@ richard.c.lindsey@ricompute.com
 
 ## Slides and other resources can be found at: 
 
-[https://ricompute.com/R/](https://ricompute.com/R/)
+[https://ricompute.com/r/](https://ricompute.com/r/)
 </strong>
 
 .footnote[
