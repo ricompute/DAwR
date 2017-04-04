@@ -180,7 +180,7 @@ date()
 ```
 
 ```
-## [1] "Tue Apr  4 00:00:49 2017"
+## [1] "Tue Apr  4 15:27:16 2017"
 ```
 
 --
@@ -616,24 +616,6 @@ To use packages you have installed, use **`library()`**:
 
 ```r
 library(tidyverse)
-```
-
-```
-## Loading tidyverse: ggplot2
-## Loading tidyverse: tibble
-## Loading tidyverse: tidyr
-## Loading tidyverse: readr
-## Loading tidyverse: purrr
-## Loading tidyverse: dplyr
-```
-
-```
-## Conflicts with tidy packages ----------------------------------------------
-```
-
-```
-## filter(): dplyr, stats
-## lag():    dplyr, stats
 ```
 
 --
@@ -1297,6 +1279,11 @@ but it comes with **`dplyr`**.
 
 You can use it to chain multiple **`dplyr`** verbs (and other functions) together.
 
+--
+
+In RStudio, **`Ctrl+Shift+M`** (`Cmd+Shift+M`) inserts **`%&gt;%`** surrounded by 
+spaces.
+
 ---
 
 # Tip \#6.5: Use Pipes
@@ -1362,6 +1349,46 @@ and [Getting data in and out of R](http://stat545.com/block026_file-out-in.html)
 from the STAT 545 site.
 ]
 
+
+---
+class: center, middle, inverse
+
+# The Latest and Greatest
+
+---
+
+# Tip \#8: Update **`R`**
+
+New versions of **`R`** are released every 3--4 months or so.
+
+--
+
+In general, it's best to keep up to date. Most changes will not affect how you 
+interact with **`R`**; there are improvements under the hood.
+
+--
+
+Google how to update **`R`** for your operating system. 
+
+- Look at the `installr` package for Windows.
+
+- On Linux, updates should be handled by your distribution's package manager/repositories.
+
+--
+
+**`R` packages** also receive periodic updates.
+
+--
+
+Update the packages you have installed with **`update.packages()`**.
+
+--
+
+- **WARNING**: updates to packages may break your scripts. I'd highly recommend 
+avoiding updates during a project (unless you have time to fix anything that 
+breaks).
+
+
 ---
 class: center, middle, inverse
 
@@ -1369,7 +1396,7 @@ class: center, middle, inverse
 
 ---
 
-# Tip \#8: How to Get Help
+# Tip \#9: How to Get Help
 
 --
 

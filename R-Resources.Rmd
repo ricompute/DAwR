@@ -120,7 +120,13 @@ See [Data Import](http://r4ds.had.co.nz/data-import.html) in *R for Data Science
 and [Getting data in and out of R](http://stat545.com/block026_file-out-in.html) 
 from the STAT 545 site.
 
-### Tip \#8: How to Get Help
+### Tip \#8: Update **`R`**
+
+**WARNING**: updates to packages may break your scripts. I'd highly recommend 
+avoiding updates during a project (unless you have time to fix anything that 
+breaks).
+
+### Tip \#9: How to Get Help
 
 Google is your friend!
 
