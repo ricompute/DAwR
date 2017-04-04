@@ -1,0 +1,148 @@
+---
+title: "**`R`** Resources"
+author: "Rick Lindsey"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+---
+
+# Slides
+
+[Data Analysis with **`R`**: Tips for Making Your **`R`** Life Better](./r-tips/)
+
+Below are some of the resources mentioned in the slides. See the slides themselves 
+for more explanation and examples!
+
+## Resources from the Slides
+
+### Getting **`R`**
+
+The main **`R`** website is [www.r-project.org](https://www.r-project.org).
+
+Download and install **`R`** for your operating system at **CRAN**:  
+[cloud.r-project.org](https://cloud.r-project.org)
+
+### Tip \#1: Use **RStudio**
+
+The main **RStudio** website is [www.rstudio.com](https://www.rstudio.com).
+
+Download and install **RStudio** for your operating system here:  
+[https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
+
+### Tip \#2: Don't Type at the Console: Use **`R`** Scripts
+
+Follow Hadley Wickham's [code style guidelines](http://r-pkgs.had.co.nz/r.html#style).
+
+#### Tip \#2.5: Use RStudio Projects
+
+### **`R`** and **RStudio** Basics: Resources
+
+- *R for Data Science* [workflow basics](http://r4ds.had.co.nz/workflow-basics.html)
+
+- [STAT 545 Basics](http://stat545.com/block002_hello-r-workspace-wd-project.html)
+
+- Free [Introduction to R](https://www.datacamp.com/courses/free-introduction-to-r) 
+course at DataCamp
+
+- [swirl](http://swirlstats.com/): Learn R, in R.
+
+- Free [R Programming](https://www.coursera.org/learn/r-programming) course at 
+Coursera and its free book:  
+[*R Programming for Data Science*](https://leanpub.com/rprogramming) by Roger Peng
+
+- [*Hands on Programming with R*](http://amzn.com/1449359019) by Garrett Grolemund
+
+- [RStudio Essentials](https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-part-1/) 
+video (watch at least the first 15&ndash;20 minutes)
+
+- [RStudio IDE Cheat Sheet](https://www.rstudio.com/resources/cheatsheets/)  
+In RStudio: `Help > Cheatsheets > RStudio IDE Cheat Sheet`
+
+### Tip \#3: Use Awesome **`R`** Packages!
+
+```r
+install.packages(c("tidyverse", "rmarkdown"))
+```
+
+### Tip \#4: Use **`ggplot2`** for Graphics
+
+#### **`ggplot2`** Resources
+
+- Official **`ggplot2`** [website](http://ggplot2.org/) and 
+[documentation](http://docs.ggplot2.org/current/): 
+[http://ggplot2.org/](http://ggplot2.org/)
+
+- Official **`ggplot2`** 
+[book](https://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/331924275X/ref=dp_ob_title_bk)
+
+- [STAT 545 Graphics Tutorials](http://stat545.com/graph00_index.html)
+
+- Explanatory videos by Roger Peng: [part 1](https://youtu.be/HeqHMM4ziXA) 
+and [part 2](https://youtu.be/n8kYa9vu1l8)
+
+- [Data Visualization Cheat Sheet](https://www.rstudio.com/resources/cheatsheets/)  
+In RStudio: `Help > Cheatsheets > Data Visualization with ggplot2`
+
+### Tip \#5: Use Tidy Data
+
+[Tidy data](http://r4ds.had.co.nz/tidy-data.html) means:
+
+1. Each variable must have its own column.
+2. Each observation must have its own row.
+3. Each value must have its own cell.
+
+If you do not have tidy data, the 
+[**`tidyr`**](https://github.com/jennybc/lotr-tidy#readme) package can be used 
+to tidy your data.
+
+### Tip \#6: Use **`dplyr`**
+
+### Tidy Data and **`dplyr`** Resources
+
+[Tidy Data and *Lord of the Rings*](https://github.com/jennybc/lotr-tidy/blob/master/01-intro.md) by Jenny Bryan
+
+*R for Data Science*: [Tidy Data](http://r4ds.had.co.nz/tidy-data.html), 
+[dplyr](http://r4ds.had.co.nz/transform.html)
+
+Official [Introduction to dplyr](https://cran.r-project.org/web/packages/dplyr/vignettes/introduction.html)
+
+STAT 545 [Basic care and feeding of data in R](http://stat545.com/block006_care-feeding-data.html)
+
+STAT 545 [Introduction to dplyr](http://stat545.com/block009_dplyr-intro.html)
+
+STAT 545 [dplyr functions for a single dataset](http://stat545.com/block010_dplyr-end-single-table.html)
+
+Video [Introduction to the dplyr R package](https://www.youtube.com/watch?v=aywFompr1F4) by Roger Peng
+
+#### Tip \#6.5: Use Pipes
+
+### Tip \#7: Use **`readr`** for Data Import
+
+See [Data Import](http://r4ds.had.co.nz/data-import.html) in *R for Data Science* 
+and [Getting data in and out of R](http://stat545.com/block026_file-out-in.html) 
+from the STAT 545 site.
+
+### Tip \#8: How to Get Help
+
+Google is your friend!
+
+Often, literally typing your question (with "R" in it) or pasting an error 
+message into Google will give you helpful results. There are tons of R blogs and 
+other resources readily available.
+
+There is an R Help e-mail list, the text of which can be found online. Only 
+ask for help on this list if you've tried everything you can possibly think of 
+to find the answer yourself, memorized the Posting Guide, and followed the Posting 
+Guide meticulously. And don't be surprised if you get a rude answer.
+
+You can try [rseek.org](http://rseek.org/) to search Google for **`R`**-specific 
+results.
+
+Lots of good answers are found at StackExchange / [Stack Overflow](https://stackoverflow.com/questions/tagged/r).
+
+Statistics questions are answered at [Cross Validated](http://stats.stackexchange.com/).
+
+Ask someone you know in person! I generally would love to help you get better at 
+**`R`** and am happy to answer questions.
+
+### Bonus Tip: Use **`R` Markdown**
+
+[rmarkdown.rstudio.com](http://rmarkdown.rstudio.com/)
