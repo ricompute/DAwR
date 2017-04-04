@@ -12,7 +12,7 @@
 class: center, middle, inverse, title-slide
 
 # Data Analysis with <strong><code>R</code></strong>
-## Tips for Getting Started with <strong><code>R</code></strong>
+## Tips for Making Your <strong><code>R</code></strong> Life Better
 ### Rick Lindsey
 ### 2017
 
@@ -180,7 +180,7 @@ date()
 ```
 
 ```
-## [1] "Fri Mar 31 13:10:17 2017"
+## [1] "Tue Apr  4 00:00:49 2017"
 ```
 
 --
@@ -689,6 +689,8 @@ str(mpg)
 observations (in the rows)." 
 ([*R4DS*](http://r4ds.had.co.nz/data-visualisation.html#first-steps))
 
+"Tibble" is the tidyverse version of a data frame.
+
 --
 
 
@@ -870,10 +872,564 @@ tidy_data
 
 ---
 
+# Tidy Data
+
+If you do not have tidy data, the 
+[**`tidyr`**](https://github.com/jennybc/lotr-tidy#readme) package can be used 
+to tidy your data.
+
+---
+
 # Tip \#6: Use **`dplyr`**
 
+**`dplyr`** is a package by (you guessed it) Hadley Wickham which provides a 
+consistent and approachable grammar for manipulating your data.
+
+--
+
+[**`dplyr`**](http://r4ds.had.co.nz/transform.html#dplyr-basics) provides a 
+group of verbs you can use to interact with data frames:
+
+--
+
+1. **`select()`** picks variables (columns of a data frame) by their names.
+
+--
+
+2. **`filter()`** picks observations (rows of a data frame) by their values.
+
+--
+
+3. **`arrange()`** reorders rows.
+
+--
+
+4. **`mutate()`** creates new variables with functions of existing variables.
+
+--
+
+5. **`summarize()`** collapses many values down to single summaries.
+
+--
+
+**`group_by()`** changes these functions from working on the whole data frame to 
+working on subsets of the data frame group-by-group.
+
+---
+
+# `dplyr::`**`select()`**
+
+**`select()`** picks variables (columns of a data frame) by their names.
 
 
+```r
+select(ggplot2::mpg, manufacturer, displ, cty, hwy)
+```
+
+```
+## # A tibble: 234 × 4
+##    manufacturer displ   cty   hwy
+##           &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+## 1          audi   1.8    18    29
+## 2          audi   1.8    21    29
+## 3          audi   2.0    20    31
+## 4          audi   2.0    21    30
+## 5          audi   2.8    16    26
+## 6          audi   2.8    18    26
+## 7          audi   3.1    18    27
+## 8          audi   1.8    18    26
+## 9          audi   1.8    16    25
+## 10         audi   2.0    20    28
+## # ... with 224 more rows
+```
+
+---
+
+# `dplyr::`**`select()`**
+
+The new data frame can be assigned to a new object:
+
+
+```r
+small_mpg &lt;- select(ggplot2::mpg, manufacturer, displ, cty, hwy)
+small_mpg
+```
+
+```
+## # A tibble: 234 × 4
+##    manufacturer displ   cty   hwy
+##           &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+## 1          audi   1.8    18    29
+## 2          audi   1.8    21    29
+## 3          audi   2.0    20    31
+## 4          audi   2.0    21    30
+## 5          audi   2.8    16    26
+## 6          audi   2.8    18    26
+## 7          audi   3.1    18    27
+## 8          audi   1.8    18    26
+## 9          audi   1.8    16    25
+## 10         audi   2.0    20    28
+## # ... with 224 more rows
+```
+
+---
+
+# `dplyr::`**`filter()`**
+
+**`filter()`** picks observations (rows of a data frame) based on their values.
+
+
+```r
+filter(small_mpg, manufacturer == "audi", displ == 2.8)
+```
+
+```
+## # A tibble: 5 × 4
+##   manufacturer displ   cty   hwy
+##          &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+## 1         audi   2.8    16    26
+## 2         audi   2.8    18    26
+## 3         audi   2.8    15    25
+## 4         audi   2.8    17    25
+## 5         audi   2.8    15    24
+```
+
+
+---
+
+# `dplyr::`**`filter()`**
+
+The conditions by which you want to **`filter()`** can use any of **`R`**'s 
+comparison operators.
+
+--
+
+- equal: **`==`**
+
+- not equal: **`!=`**
+
+- greater than (or equal to): **`&gt;`** (**`&gt;=`**)
+
+- less than (or equal to): **`&lt;`** (**`&lt;=`**)
+
+--
+
+Multiple arguments passed to **`filter()`** are combined with "and." You can 
+make other comparisons using Boolean operators:
+
+--
+
+- and: **`&amp;`**
+
+- or: **`|`**
+
+- not: **`!`**
+
+--
+
+**`%in%`** lets you check if a value is in a given set of values.
+
+---
+
+# `dplyr::`**`filter()`**
+
+
+```r
+filter(small_mpg, manufacturer == "audi", displ &gt;= 3.1)
+```
+
+```
+## # A tibble: 5 × 4
+##   manufacturer displ   cty   hwy
+##          &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+## 1         audi   3.1    18    27
+## 2         audi   3.1    17    25
+## 3         audi   3.1    15    25
+## 4         audi   3.1    17    25
+## 5         audi   4.2    16    23
+```
+
+--
+
+
+```r
+filter(small_mpg, manufacturer == "audi" &amp; displ &gt;= 3.1)
+```
+
+```
+## # A tibble: 5 × 4
+##   manufacturer displ   cty   hwy
+##          &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+## 1         audi   3.1    18    27
+## 2         audi   3.1    17    25
+## 3         audi   3.1    15    25
+## 4         audi   3.1    17    25
+## 5         audi   4.2    16    23
+```
+
+
+---
+
+# `dplyr::`**`filter()`**
+
+
+```r
+filter(small_mpg, cty &gt;= 25 | hwy &gt;= 35)
+```
+
+```
+## # A tibble: 11 × 4
+##    manufacturer displ   cty   hwy
+##           &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+## 1         honda   1.6    28    33
+## 2         honda   1.6    25    32
+## 3         honda   1.8    26    34
+## 4         honda   1.8    25    36
+## 5         honda   1.8    24    36
+## 6        toyota   1.8    26    35
+## 7        toyota   1.8    28    37
+## 8        toyota   1.8    26    35
+## 9    volkswagen   1.9    33    44
+## 10   volkswagen   1.9    35    44
+## 11   volkswagen   1.9    29    41
+```
+
+---
+
+# `dplyr::`**`filter()`**
+
+
+```r
+filter(small_mpg, cty %in% c(15, 19, 26))
+```
+
+```
+## # A tibble: 47 × 4
+##    manufacturer displ   cty   hwy
+##           &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+## 1          audi   2.0    19    27
+## 2          audi   2.8    15    25
+## 3          audi   3.1    15    25
+## 4          audi   2.8    15    24
+## 5     chevrolet   5.7    15    23
+## 6     chevrolet   6.2    15    25
+## 7     chevrolet   7.0    15    24
+## 8     chevrolet   2.4    19    27
+## 9         dodge   3.8    15    22
+## 10        dodge   3.8    15    21
+## # ... with 37 more rows
+```
+
+---
+
+# `dplyr::`**`arrange()`**
+
+**`arrange()`** reorders rows, sorting in ascending order.
+
+
+```r
+arrange(small_mpg, cty, hwy)
+```
+
+```
+## # A tibble: 234 × 4
+##    manufacturer displ   cty   hwy
+##           &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+## 1         dodge   4.7     9    12
+## 2         dodge   4.7     9    12
+## 3         dodge   4.7     9    12
+## 4         dodge   4.7     9    12
+## 5          jeep   4.7     9    12
+## 6     chevrolet   5.3    11    14
+## 7          jeep   6.1    11    14
+## 8     chevrolet   5.3    11    15
+## 9     chevrolet   5.7    11    15
+## 10        dodge   5.2    11    15
+## # ... with 224 more rows
+```
+
+---
+
+# `dplyr::`**`arrange()`**
+
+Use **`desc()`** inside `arrange()` to arrange in descending order:
+
+
+```r
+arrange(small_mpg, desc(cty), desc(hwy))
+```
+
+```
+## # A tibble: 234 × 4
+##    manufacturer displ   cty   hwy
+##           &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+## 1    volkswagen   1.9    35    44
+## 2    volkswagen   1.9    33    44
+## 3    volkswagen   1.9    29    41
+## 4        toyota   1.8    28    37
+## 5         honda   1.6    28    33
+## 6        toyota   1.8    26    35
+## 7        toyota   1.8    26    35
+## 8         honda   1.8    26    34
+## 9         honda   1.8    25    36
+## 10        honda   1.6    25    32
+## # ... with 224 more rows
+```
+
+---
+
+# `dplyr::`**`mutate()`**
+
+**`mutate()`** creates new variables with functions of existing variables.
+
+
+```r
+mutate(small_mpg, mpg_diff = hwy - cty)
+```
+
+```
+## # A tibble: 234 × 5
+##    manufacturer displ   cty   hwy mpg_diff
+##           &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;
+## 1          audi   1.8    18    29       11
+## 2          audi   1.8    21    29        8
+## 3          audi   2.0    20    31       11
+## 4          audi   2.0    21    30        9
+## 5          audi   2.8    16    26       10
+## 6          audi   2.8    18    26        8
+## 7          audi   3.1    18    27        9
+## 8          audi   1.8    18    26        8
+## 9          audi   1.8    16    25        9
+## 10         audi   2.0    20    28        8
+## # ... with 224 more rows
+```
+
+---
+
+# `dplyr::`**`summarize()`**
+
+**`summarize()`** collapses many values down to single summaries.
+
+
+```r
+summarize(small_mpg, city = mean(cty))
+```
+
+```
+## # A tibble: 1 × 1
+##       city
+##      &lt;dbl&gt;
+## 1 16.85897
+```
+
+---
+
+# `dplyr::`**`summarize()`**
+
+But, `summarize()` is most useful when used with **`group_by()`**:
+
+
+```r
+summarize(group_by(small_mpg, manufacturer), city = mean(cty))
+```
+
+```
+## # A tibble: 15 × 2
+##    manufacturer     city
+##           &lt;chr&gt;    &lt;dbl&gt;
+## 1          audi 17.61111
+## 2     chevrolet 15.00000
+## 3         dodge 13.13514
+## 4          ford 14.00000
+## 5         honda 24.44444
+## 6       hyundai 18.64286
+## 7          jeep 13.50000
+## 8    land rover 11.50000
+## 9       lincoln 11.33333
+## 10      mercury 13.25000
+## 11       nissan 18.07692
+## 12      pontiac 17.00000
+## 13       subaru 19.28571
+## 14       toyota 18.52941
+## 15   volkswagen 20.92593
+```
+
+---
+
+# Tidy Data and **`dplyr`** Resources
+
+[Tidy Data and *Lord of the Rings*](https://github.com/jennybc/lotr-tidy/blob/master/01-intro.md) by Jenny Bryan
+
+*R for Data Science*: [Tidy Data](http://r4ds.had.co.nz/tidy-data.html), 
+[dplyr](http://r4ds.had.co.nz/transform.html)
+
+Official [Introduction to dplyr](https://cran.r-project.org/web/packages/dplyr/vignettes/introduction.html)
+
+STAT 545 [Basic care and feeding of data in R](http://stat545.com/block006_care-feeding-data.html)
+
+STAT 545 [Introduction to dplyr](http://stat545.com/block009_dplyr-intro.html)
+
+STAT 545 [dplyr functions for a single dataset](http://stat545.com/block010_dplyr-end-single-table.html)
+
+Video [Introduction to the dplyr R package](https://www.youtube.com/watch?v=aywFompr1F4) by Roger Peng
+
+---
+class: center, middle, inverse
+
+# Pipe Dreams!
+
+---
+
+# Tip \#6.5: Use Pipes
+
+.center[
+![Pipe](./im/pipe.png)
+]
+
+**`%&gt;%`** is the pipe operator. It is originally from the **`magrittr`** package, 
+but it comes with **`dplyr`**.
+
+--
+
+**`%&gt;%`** "pipes" the output of one function to the input of another function.
+
+--
+
+You can use it to chain multiple **`dplyr`** verbs (and other functions) together.
+
+---
+
+# Tip \#6.5: Use Pipes
+
+
+```r
+ggplot2::mpg %&gt;% mutate(mpg_diff = hwy - cty) %&gt;% 
+    group_by(manufacturer) %&gt;% 
+    summarize(mpg_diff = mean(mpg_diff)) %&gt;% 
+    arrange(desc(mpg_diff)) %&gt;% 
+    head(10)
+```
+
+```
+## # A tibble: 10 × 2
+##    manufacturer mpg_diff
+##           &lt;chr&gt;    &lt;dbl&gt;
+## 1       pontiac 9.400000
+## 2          audi 8.833333
+## 3    volkswagen 8.296296
+## 4       hyundai 8.214286
+## 5         honda 8.111111
+## 6     chevrolet 6.894737
+## 7        nissan 6.538462
+## 8        toyota 6.382353
+## 9        subaru 6.285714
+## 10      lincoln 5.666667
+```
+
+---
+
+# Tip \#6.5: Use Pipes
+
+
+```r
+ggplot2::mpg %&gt;% mutate(mpg_diff = hwy - cty) %&gt;% 
+    group_by(manufacturer) %&gt;% 
+    summarize(mpg_diff = mean(mpg_diff)) %&gt;% 
+    arrange(desc(mpg_diff)) %&gt;% 
+    mutate(mfr = factor(manufacturer, levels = manufacturer, 
+                                 ordered = TRUE)) %&gt;% 
+    ggplot(aes(x = mfr, y = mpg_diff)) + geom_col() + 
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+&lt;img src="R-Tips_files/figure-html/pipe_ex-1.svg" style="display: block; margin: auto;" /&gt;
+
+---
+class: center, middle, inverse
+
+# Get Data Into R
+
+---
+
+# Tip \#7: Use **`readr`** for Data Import
+
+**`read_csv()`** is just like base **`R`**'s `read.csv()`, but it has better 
+defaults, and it puts your data into a tibble for use with dplyr.
+
+.footnote[
+See [Data Import](http://r4ds.had.co.nz/data-import.html) in *R for Data Science* 
+and [Getting data in and out of R](http://stat545.com/block026_file-out-in.html) 
+from the STAT 545 site.
+]
+
+---
+class: center, middle, inverse
+
+# HELP!
+
+---
+
+# Tip \#8: How to Get Help
+
+--
+
+Google is your friend!
+
+--
+
+Often, literally typing your question (with "R" in it) or pasting an error 
+message into Google will give you helpful results. There are tons of R blogs and 
+other resources readily available.
+
+--
+
+There is an R Help e-mail list, the text of which can be found online. Only 
+ask for help on this list if you've tried everything you can possibly think of 
+to find the answer yourself, memorized the Posting Guide, and followed the Posting 
+Guide meticulously. And don't be surprised if you get a rude answer.
+
+--
+
+You can try [rseek.org](http://rseek.org/) to search Google for **`R`**-specific 
+results.
+
+--
+
+Lots of good answers are found at StackExchange / [Stack Overflow](https://stackoverflow.com/questions/tagged/r).
+
+--
+
+Statistics questions are answered at [Cross Validated](http://stats.stackexchange.com/).
+
+--
+
+Ask someone you know in person! I generally would love to help you get better at 
+**`R`** and am happy to answer questions.
+
+---
+class: center, middle, inverse
+
+# Bonus Tip
+
+---
+
+# Bonus Tip: Use **`R` Markdown**
+
+**`R` Markdown** is a tool for writing **reproducible** data analysis reports.
+
+--
+
+You can integrate **`R`** code with text and create HTML documents, MS Word 
+documents, PDFs (via [LaTeX](https://www.latex-project.org/get/)), and slides.
+
+--
+
+- This presentation was made with R Markdown!
+
+--
+
+It's maintained by RStudio, and lots of good resources are found at 
+[rmarkdown.rstudio.com](http://rmarkdown.rstudio.com/).
 
 
 
