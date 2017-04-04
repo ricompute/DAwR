@@ -1006,7 +1006,7 @@ class: center, middle, inverse
 
 # Tip \#8: Update **`R`**
 
-New versions of **`R`** are released every 3--4 months or so.
+New versions of **`R`** are released every 3&ndash;4 months or so.
 
 --
 
