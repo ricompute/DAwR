@@ -83,6 +83,13 @@ Download and install **`R`** for your operating system at **CRAN**:
 
 ![CRAN](./im/CRAN.png)
 
+--
+
+I can help on Windows (because I have to) and Linux (because I love to). On 
+OS X/macOS, you're on your own. Try the [FAQ](https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html) 
+or these posts by Bob Rudis ([here](https://rud.is/b/2015/10/20/installing-r-on-os-x/) 
+and [here](https://rud.is/b/2015/10/22/installing-r-on-os-x-100-homebrew-edition/)).
+
 ---
 
 # Tip \#1: Use **RStudio**
@@ -116,7 +123,8 @@ Download and install **RStudio** for your operating system here:
 ]
 
 ---
-background-image: url("./im/RStudio-layout-small.png")
+background-image: url("./im/RStudio-layout.png")
+background-size: contain
 class: center, middle
 
 ---
@@ -528,12 +536,26 @@ Many packages are designed to make **`R`** easier to use.
 
 --
 
+The [**tidyverse**](http://tidyverse.org/) is a collection of R packages that 
+share common philosophies and are designed to work together.
+
+![Tidyverse](./im/tidyverse.png)
+
+---
+
+# Install and Load Packages
+
 **`R`** has a built-in way to install packages. This will install a fairly large 
 set of awesome packages designed to work well together to make your life easier:
 
 ```r
 install.packages(c("tidyverse", "rmarkdown"))
 ```
+
+--
+
+Installing the **`tidyverse`** package will install all the packages in the 
+tidyverse.
 
 --
 
@@ -545,7 +567,7 @@ install.packages(c("dplyr", "readr", "ggplot2"))
 
 ---
 
-# Load Packages for Use
+# Install and Load Packages
 
 To use packages you have installed, use **`library()`**:
 
@@ -558,6 +580,8 @@ library(tidyverse)
 --
 
 Packages only need to be installed once, but they need to be loaded each session.
+Loading the **`tidyverse`** package will load all the core tidyverse packages 
+with one command.
 
 --
 
