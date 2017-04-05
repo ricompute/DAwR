@@ -64,10 +64,12 @@ output:
 
 ---
 class: inverse, middle, center
+name: getting-started
 
 # Getting Started
 
 ---
+name: getting-r
 
 # Getting **`R`**
 
@@ -91,6 +93,7 @@ or these posts by Bob Rudis ([here](https://rud.is/b/2015/10/20/installing-r-on-
 and [here](https://rud.is/b/2015/10/22/installing-r-on-os-x-100-homebrew-edition/)).
 
 ---
+name: rstudio
 
 # Tip \#1: Use **RStudio**
 
@@ -129,6 +132,7 @@ class: center, middle
 
 ---
 class: center, middle, inverse
+name: basics
 
 # **`R`** and **RStudio** Basics
 
@@ -253,6 +257,7 @@ to search the built-in help.
 ## Everything that exists in **`R`** is an object
 
 ---
+name: assignment
 
 # **`R`** and **RStudio** Basics
 
@@ -279,6 +284,7 @@ b
 Use **`Alt+-`** (`Option+-`) to insert `<-` (surrounded by spaces) in RStudio.
 
 ---
+name: naming
 
 # **`R`** and **RStudio** Basics
 
@@ -376,6 +382,7 @@ Keep track of objects you have stored in the environment pane:
 ]
 
 ---
+name: scripts
 
 # Tip \#2: Don't Type at the Console
 
@@ -420,6 +427,7 @@ Editor pane:
 **`source("filename.R")`** to run the whole file.
 
 ---
+name: style
 
 # **`R`** and **RStudio** Basics: Scripts
 
@@ -431,14 +439,12 @@ Write code which is meant to be read, even if it is only for you.
 
 --
 
-Follow Hadley Wickham's [code style guidelines](http://r-pkgs.had.co.nz/r.html#style).
+Follow Hadley Wickham's [code style guidelines](http://r-pkgs.had.co.nz/r.html#style).  
+See also [The tidyverse style guide](http://style.tidyverse.org/).
 
 --
 
 - Except indent 4 spaces.
-
---
-
 - Unless you don't want to. Just be consistent.
 
 --
@@ -456,13 +462,12 @@ do_a_thing <- function(arg_1, arg_2) {
 
 **NOT**
 
---
-
 ```r
 thg<-function(a1,a2){fnbdy}
 ```
 
 ---
+name: rstudio-projects
 
 # Tip \#2.5: Use RStudio Projects
 
@@ -492,6 +497,7 @@ it is better to start each session with a clean workspace and recreate your work
 via R scripts.
 
 ---
+name: basic-resources
 
 # **`R`** and **RStudio** Basics: Resources
 
@@ -522,6 +528,7 @@ class: center, middle, inverse
 # Add Awesome to Your **`R`**
 
 ---
+name: packages-tidyverse
 
 # Tip \#3: Use Awesome **`R`** Packages!
 
@@ -593,6 +600,7 @@ class: center, middle, inverse
 # Make Pretty Pictures
 
 ---
+name: ggplot2
 
 # Tip \#4: Use **`ggplot2`** for Graphics
 
@@ -609,6 +617,7 @@ str(mpg)
 ```
 
 ---
+name: data-frames
 
 # Data in Data Frames
 
@@ -658,6 +667,7 @@ ggplot(data = mpg,mapping = aes(x = displ, y = hwy)) +
 
 
 ---
+name: ggplot2-resources
 
 # **`ggplot2`** Resources
 
@@ -682,6 +692,7 @@ class: center, middle, inverse
 # Tidy Your Data
 
 ---
+name: tidy-data
 
 # Tip \#5: Use Tidy Data
 
@@ -744,6 +755,7 @@ If you do not have tidy data, the
 to tidy your data.
 
 ---
+name: dplyr
 
 # Tip \#6: Use **`dplyr`**
 
@@ -781,6 +793,7 @@ group of verbs you can use to interact with data frames:
 working on subsets of the data frame group-by-group.
 
 ---
+name: dplyr-select
 
 # `dplyr::`**`select()`**
 
@@ -802,6 +815,7 @@ small_mpg
 ```
 
 ---
+name: dplyr-filter
 
 # `dplyr::`**`filter()`**
 
@@ -813,6 +827,7 @@ filter(small_mpg, manufacturer == "audi", displ == 2.8)
 
 
 ---
+name: comparison
 
 # `dplyr::`**`filter()`**
 
@@ -878,6 +893,7 @@ filter(small_mpg, cty %in% c(15, 19, 26))
 ```
 
 ---
+name: dplyr-arrange
 
 # `dplyr::`**`arrange()`**
 
@@ -898,6 +914,7 @@ arrange(small_mpg, desc(cty), desc(hwy))
 ```
 
 ---
+name: dplyr-mutate
 
 # `dplyr::`**`mutate()`**
 
@@ -908,6 +925,7 @@ mutate(small_mpg, mpg_diff = hwy - cty)
 ```
 
 ---
+name: dplyr-summarize
 
 # `dplyr::`**`summarize()`**
 
@@ -918,6 +936,7 @@ summarize(small_mpg, city = mean(cty))
 ```
 
 ---
+name: dplyr-group_by
 
 # `dplyr::`**`summarize()`**
 
@@ -928,6 +947,7 @@ summarize(group_by(small_mpg, manufacturer), city = mean(cty))
 ```
 
 ---
+name: tidy-data-dplyr-resources
 
 # Tidy Data and **`dplyr`** Resources
 
@@ -952,6 +972,7 @@ class: center, middle, inverse
 # Pipe Dreams!
 
 ---
+name: pipes
 
 # Tip \#6.5: Use Pipes
 
@@ -1008,6 +1029,7 @@ class: center, middle, inverse
 # Get Data Into R
 
 ---
+name: data-import
 
 # Tip \#7: Use **`readr`** for Data Import
 
@@ -1027,6 +1049,7 @@ class: center, middle, inverse
 # The Latest and Greatest
 
 ---
+name: update
 
 # Tip \#8: Update **`R`**
 
@@ -1066,6 +1089,7 @@ class: center, middle, inverse
 # HELP!
 
 ---
+name: help
 
 # Tip \#9: How to Get Help
 
@@ -1110,6 +1134,7 @@ class: center, middle, inverse
 # Bonus Tip
 
 ---
+name: rmarkdown
 
 # Bonus Tip: Use **`R` Markdown**
 
@@ -1139,6 +1164,7 @@ class: center, bottom, inverse
 # Mustache Karl Approves!
 
 ---
+name: thanks
 
 # Thanks!
 
