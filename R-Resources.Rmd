@@ -20,6 +20,11 @@ The main **`R`** website is [www.r-project.org](https://www.r-project.org).
 Download and install **`R`** for your operating system at **CRAN**:  
 [cloud.r-project.org](https://cloud.r-project.org)
 
+I can help on Windows (because I have to) and Linux (because I love to).  
+On OS X/macOS, you're on your own. Try the [FAQ](https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html) 
+or these posts by Bob Rudis ([here](https://rud.is/b/2015/10/20/installing-r-on-os-x/) 
+and [here](https://rud.is/b/2015/10/22/installing-r-on-os-x-100-homebrew-edition/)).
+
 ### Tip \#1: Use **RStudio**
 
 The main **RStudio** website is [www.rstudio.com](https://www.rstudio.com).
