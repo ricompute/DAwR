@@ -85,8 +85,8 @@ Download and install **`R`** for your operating system at **CRAN**:
 
 --
 
-I can help on Windows (because I have to) and Linux (because I love to). On 
-OS X/macOS, you're on your own. Try the [FAQ](https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html) 
+I can help on Windows (because I have to) and Linux (because I love to).  
+On OS X/macOS, you're on your own. Try the [FAQ](https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html) 
 or these posts by Bob Rudis ([here](https://rud.is/b/2015/10/20/installing-r-on-os-x/) 
 and [here](https://rud.is/b/2015/10/22/installing-r-on-os-x-100-homebrew-edition/)).
 
