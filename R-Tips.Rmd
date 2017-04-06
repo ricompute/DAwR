@@ -580,7 +580,7 @@ To use packages you have installed, use **`library()`**:
 
 --
 
-```{r}
+```{r load_tidyverse, collapse = TRUE}
 library(tidyverse)
 ```
 
@@ -592,7 +592,8 @@ with one command.
 
 --
 
-**`package::function()`** lets you be explicit about where a function comes from.
+**`package::function()`** lets you be explicit about where a function comes from 
+or use a function from a package which is installed but not loaded.
 
 ---
 class: center, middle, inverse
