@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reproducible Reports with R Markdown</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Rick Lindsey" />
+    <meta name="date" content="2017-01-01" />
+    <link href="libs/remark-css-0.0.1/example.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Reproducible Reports with R Markdown
+## Or How to Make R Homework Easier
+### Rick Lindsey
+### 2017
+
+---
+
+
+
+
+
+# R Markdown
+
+.center[
+![R Markdown](./im/rmarkdown.png)
+]
+
+**R Markdown** is a way to integrate code with text to produce reproducible 
+data analysis documents.
+
+--
+
+Using the same basic plain text document, R Markdown can produce:
+
+- HTML documents
+- PDFs (via [LaTeX](https://www.latex-project.org/get/))
+- MS Word documents
+- and much, much more!
+
+---
+
+# Get R Markdown
+
+.center[
+![R Markdown](./im/rmarkdown.png)
+]
+
+--
+
+**R Markdown** is an R package maintained by the RStudio team.
+
+--
+
+```r
+install.packages("rmarkdown")
+```
+
+--
+
+R Markdown integrates seamlessly with the RStudio IDE!
+
+--
+
+But, you can use R Markdown without RStudio if you must.
+
+--
+
+R Markdown requires [Pandoc](http://pandoc.org/) to be installed.  
+Don't worry! Pandoc comes with RStudio!
+
+---
+
+# Structure of an R Markdown Document
+
+An R Markdown document is a plain text document with the extension **`.Rmd`**.
+
+--
+
+In RStudio, `File &gt; New File &gt; R Markdown...`
+
+--
+
+## YAML Header
+
+```yaml
+---
+title: "This is a Document!"
+author: "Rick Lindsey"
+date: "April 09, 2017"
+output: html_document
+---
+```
+
+---
+
+# Write Text in Markdown
+
+**Markdown** is a simple plain text formatting syntax created by 
+[John Gruber](http://daringfireball.net/projects/markdown/).
+
+R Markdown uses a slightly extended version of 
+[Pandoc's Markdown](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html).
+
+--
+
+```markdown
+# Header 1
+
+Normal, plain text is writen just like normal text.
+You can do bulleted lists:
+
+- italics are done with *single asterisks*
+- bold is done with **double asterisks**
+- inline code is formatted with `single backticks`
+- links are with [square brackets](https://rmarkdown.rstudio.com)
+
+## Header 2
+
+And you can do numbered lists:
+
+1. Inline LaTeX math: $Y = f(X) + \epsilon$
+1. And here's another point.
+1. And a third.
+```
+
+---
+
+# Header 1
+
+Normal, plain text is writen just like normal text.
+You can do bulleted lists:
+
+- italics are done with *single asterisks*
+- bold is done with **double asterisks**
+- inline code is formatted with `single backticks`
+- links are with [square brackets](https://rmarkdown.rstudio.com)
+
+## Header 2
+
+And you can do numbered lists:
+
+1. Inline LaTeX math: `\(Y = f(X) + \epsilon\)`
+1. And here's another point.
+1. And a third.
+
+---
+
+# Write R Code in Code Chunks
+
+In RStudio, insert a code chunk with **`Ctrl+Alt+I`** (`Cmd+Option+I`).
+
+**`Ctrl+Shift+Enter`** (`Cmd+Shift+Enter`) runs all code in the chunk.
+
+--
+
+&lt;br /&gt;
+
+.center[
+![Code Chunk 1](./im/code-chunk-1.png)
+]
+
+---
+
+# Write R Code in Code Chunks
+
+
+```r
+library(ggplot2)
+mpg_plot &lt;- ggplot(mpg, aes(x = cty, y = hwy)) +
+                geom_point() + geom_smooth(method = "lm") + 
+                labs(title = "Highway vs. City MPG",
+                     subtitle = "How are highway and city mileage related?",
+                     caption = "Data from ggplot2::mpg",
+                     x = "City (mpg)", y = "Highway (mpg)")
+mpg_plot
+```
+
+&lt;img src="R-Markdown_files/figure-html/optional_chunk_name-1.svg" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Write R Code in Code Chunks
+
+R objects you create in one code chunk are available in later chunks.
+
+&lt;br /&gt;
+
+.center[
+![Code Chunk 2](./im/code-chunk-2.png)
+]
+
+---
+
+# Write R Code in Code Chunks
+
+
+```r
+mpg_plot + facet_wrap(~ class, nrow = 2)
+```
+
+&lt;img src="R-Markdown_files/figure-html/second_chunk-1.svg" style="display: block; margin: auto;" /&gt;
+
+You can also use inline R code: 6.2831853.
+
+---
+
+# Render Your Document
+
+In RStudio, **`Ctrl+Shift+K`** (`Cmd+Shift+K`) produces your document.
+
+Without RStudio, `rmarkdown::render("document.Rmd")` at the R prompt.
+
+--
+
+To change output format, change `html_document` in the YAML header to `pdf_document` 
+or `word_document`.
+
+```yaml
+---
+title: "This is a Document!"
+author: "Rick Lindsey"
+date: "April 09, 2017"
+output: pdf_document
+---
+```
+
+---
+
+# R Markdown Resources
+
+https://rmarkdown.rstudio.com
+
+[R Markdown Cheat Sheet](https://www.rstudio.com/resources/cheatsheets/)  
+In RStudio, `Help &gt; Cheatsheets &gt; R Markdown Cheat Sheet` and  
+`Help &gt; Cheatsheets &gt; R Markdown Reference Guide`
+    </textarea>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('showSlide', function (slide) {setTimeout(function() {window.dispatchEvent(new Event('resize'));}, 100)});</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
